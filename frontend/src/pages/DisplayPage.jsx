@@ -337,7 +337,6 @@ const LandingPage = () => {
             <p className="text-sm text-primary">
               Discord:{" "}
               <a
-                href="https://discord.com/users/poltergeist2102"
                 className="text-accent hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
