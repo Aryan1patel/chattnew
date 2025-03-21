@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import path from 'path';
 import axios from 'axios'; // ✅ Import axios
-import helmet from 'helmet'; // ✅ Import Helmet for security
+
 
 import authRoutes from './routes/auth.route.js';
 import aiRoutes from './routes/ai.route.js';
@@ -23,41 +23,13 @@ dotenv.config();
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-// Security Middleware
-app.use(
-    helmet({
-        contentSecurityPolicy: {
-            directives: {
-                defaultSrc: ["'self'"],
-                scriptSrc: ["'self'", "'unsafe-inline'", "blob:", "https://apis.google.com"],
-                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-                fontSrc: ["'self'", "https://fonts.gstatic.com"],
-                connectSrc: ["'self'", "https://stellaskitchen.onrender.com"],
-                imgSrc: ["'self'", "data:", "blob:"],
-                mediaSrc: ["'self'", "blob:"],
-                frameSrc: ["'self'"],
-            },
-        },
-    })
-);
+
 
 
 app.use(express.json());
 app.use(cookieParser());
-
-const allowedOrigins = [
-    "http://localhost:5173",
-    "https://stellaskitchen.onrender.com"
-];
-
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("CORS not allowed"));
-        }
-    },
+    origin: "http://localhost:5173",
     credentials: true,
 }));
 
