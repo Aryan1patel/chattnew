@@ -302,7 +302,7 @@ const LandingPage = () => {
             href="/chat"
             className="relative inline-block px-8 py-4 text-lg font-bold text-white bg-primary rounded-xl overflow-hidden group transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"
           >
-            <span className="absolute inset-0 bg-zinc-800 transition-all duration-300 ease-out transform scale-100 group-hover:scale-110 "></span>
+            <span className="absolute inset-0 bg-pink-400 transition-all duration-300 ease-out transform scale-100 group-hover:scale-110 "></span>
             <span className="relative z-10">Join the Party 🎉</span>
           </a>
         </div>
