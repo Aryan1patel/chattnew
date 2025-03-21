@@ -34,7 +34,7 @@ const SignUpPage = () => {
   return (
     <div className="min-h-screen flex bg-gradient-to-br from-base-300 to-base-100">
       {/* Left side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 translate-x-15">
+      <div className="w-full flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <div className="bg-base-300 rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:shadow-primary/10 border border-base-content/20">
             <div className="mb-8 text-center">
@@ -119,12 +119,12 @@ const SignUpPage = () => {
         </div>
       </div>
 
-      <div className="hidden lg:flex w-full max-w-md justify-center items-center translate-x-10">
+      {/* <div className="hidden lg:flex w-full max-w-md justify-center items-center translate-x-10">
         <AuthImagePattern 
           title="Join our Community"
           subtitle="Connect with friends and family around the world"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

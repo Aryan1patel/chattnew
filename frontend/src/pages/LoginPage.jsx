@@ -25,7 +25,7 @@ const LoginPage = () => {
   return (
     <div className="h-screen flex flex-col lg:flex-row bg-gradient-to-br from-base-300 to-base-100">
       {/* Left side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12">
+      <div className="w-full  flex items-center justify-center p-6 lg:p-12">
         <div className="w-full max-w-md">
           <div className="bg-base-300 rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-10 border border-base-content/20">
             <div className="mb-6 text-center">
@@ -100,13 +100,13 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* Right side - Image */}
+      {/* Right side - Image
       <div className="hidden lg:flex w-full lg:w-1/2 items-center justify-center">
         <AuthImagePattern
           title="Welcome Back"
           subtitle="Reconnect with your community and start a conversation."
         />
-      </div>
+      </div> */}
     </div>
   );
 };
