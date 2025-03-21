@@ -9,7 +9,7 @@ export const useGeminiStore = create((set, get) => ({
     generateContent: async (prompt) => {
         set({ isGenerating: true });
         try {
-            const res = await axiosInstance.post("/generate", { prompt }); // Backend API call
+            const res = await axiosInstance.post("/generate/dexter", { prompt }); // Backend API call
             set({ generatedResponse: res.data });
             toast.success("Response generated successfully");
         } catch (error) {

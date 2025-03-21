@@ -7,6 +7,9 @@ import axios from 'axios'; // ✅ Import axios
 import helmet from 'helmet'; // ✅ Import Helmet for security
 
 import authRoutes from './routes/auth.route.js';
+import aiRoutes from './routes/ai.route.js';
+
+
 import messageRoutes from './routes/message.route.js';
 import { connectDB } from './lib/db.js';
 import { app, server } from './lib/socket.js';
@@ -21,24 +24,40 @@ const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
 // Security Middleware
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "blob:"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
-            connectSrc: ["'self'", "https://stellaskitchen.onrender.com"],
-            imgSrc: ["'self'", "data:", "blob:"],
-            mediaSrc: ["'self'", "blob:"],
-            frameSrc: ["'self'"],
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: ["'self'", "'unsafe-inline'", "blob:", "https://apis.google.com"],
+                styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+                fontSrc: ["'self'", "https://fonts.gstatic.com"],
+                connectSrc: ["'self'", "https://stellaskitchen.onrender.com"],
+                imgSrc: ["'self'", "data:", "blob:"],
+                mediaSrc: ["'self'", "blob:"],
+                frameSrc: ["'self'"],
+            },
         },
-    },
-}));
+    })
+);
+
 
 app.use(express.json());
 app.use(cookieParser());
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://stellaskitchen.onrender.com"
+];
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("CORS not allowed"));
+        }
+    },
     credentials: true,
 }));
 
@@ -46,9 +65,11 @@ app.use(cors({
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-app.post("/api/generate", protectRoute, dexterchat);
-app.post("/api/generate/harley", protectRoute, harleyChat);
-app.post("/api/generate/tyler", protectRoute, tylerChat);
+// app.post("/api/generate", protectRoute, dexterchat);
+// app.post("/api/generate/harley", protectRoute, harleyChat);
+// app.post("/api/generate/tyler", protectRoute, tylerChat);
+
+app.use("/api/generate", aiRoutes);
 
 // Production settings
 if (process.env.NODE_ENV === "production") {
