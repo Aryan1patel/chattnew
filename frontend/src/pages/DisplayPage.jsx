@@ -13,7 +13,7 @@ const LandingPage = () => {
     {
       img: "/finland.jpg",
       text: "She is from Finland.",
-      subtitle: "some pics from her home",
+      subtitle: "some pics from her home town",
       link: "/gallery2" // Added link for Finland slide
     },
     {
@@ -207,12 +207,12 @@ const LandingPage = () => {
                         opacity: index === currentSlide ? 1 : 0
                       }}
                       transition={{ delay: 0.6, duration: 0.5 }}
-                      className="mt-1 drop-shadow-2xl"
-                      // style={{
-                      //   textShadow: "2px 2px 2px rgba(0, 0, 0, 0.5)", // Adds a simple shadow
-                      // }}
+                      className="mt-1 "
+                      style={{
+                        textShadow: "2px 2px 2px rgba(0, 0, 0, 0.5)",  // Adds a simple shadow
+                      }}
                     >
-                      <span className="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-focus transition-colors duration-300">
+                      <span className="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-focus transition-colors duration-300 ">
                         {slide.subtitle}
                       </span>
                     </motion.div>

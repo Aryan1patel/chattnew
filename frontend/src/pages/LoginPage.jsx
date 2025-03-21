@@ -23,7 +23,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col lg:flex-row bg-gradient-to-br from-base-300 to-base-100">
+    <div className="min-h-screen flex bg-gradient-to-br from-base-300 to-base-100">
       {/* Left side - Form */}
       <div className="w-full  flex items-center justify-center p-6 lg:p-12">
         <div className="w-full max-w-md">
