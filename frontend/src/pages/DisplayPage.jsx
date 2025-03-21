@@ -28,7 +28,7 @@ const LandingPage = () => {
       link: "/gallery" // Added link for Maldives/travel slide
     },
     {
-      img: "/cakee.jpg",
+      img: "/change.jpg",
       text: "Whats her favourite food to make.",
       subtitle: "you want to eat? you will if you are very lucky",
       link: "/image2" // Added link for cake/recipes slide
